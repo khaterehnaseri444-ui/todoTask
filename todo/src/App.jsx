@@ -1,8 +1,12 @@
+import { useState } from "react";
+import Layout from "./layout/Layout";
+import TodoForm from "./components/todoForm/TodoForm";
+
 function App() {
   return (
-    <>
-      <h1 className="text-[30px] text-amber-200">test</h1>
-    </>
+    <Layout>
+      <TodoForm />
+    </Layout>
   );
 }
 export default App;
