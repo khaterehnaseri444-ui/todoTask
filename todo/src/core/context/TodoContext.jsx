@@ -9,6 +9,9 @@ import {
 
 const TodoContext = createContext();
 export const TodoProvider = ({ children }) => {
+  const todoTitle = "Todo";
+  const inprogressTitle = "In Progress";
+  const doneTitle = "Done";
   const [todoList, setTodoList] = useState([]);
   const [valueInput, setValueInput] = useState("");
   useEffect(() => {
@@ -71,7 +74,10 @@ export const TodoProvider = ({ children }) => {
         changeCondition,
         valueInput,
         setValueInput,
-        filterByCondition
+        filterByCondition,
+        todoTitle,
+        inprogressTitle,
+        doneTitle
       }}
     >
       {children}
