@@ -1,11 +1,13 @@
-import { useState } from "react";
 import Layout from "./layout/Layout";
-import TodoForm from "./components/todoForm/TodoForm";
+import { TodoProvider } from "./core/context/TodoContext";
+import AddTask from "./components/addTask/AddTask";
 
 function App() {
   return (
     <Layout>
-      <TodoForm />
+      <TodoProvider>
+        <AddTask />
+      </TodoProvider>
     </Layout>
   );
 }
