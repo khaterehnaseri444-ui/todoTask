@@ -29,7 +29,7 @@ function TaskCard({ task }) {
     else if (task.condition === "inprogress") changeCondition(task.id, "done");
   };
   return (
-    <div className="w-90 min-h-15 bg-fuchsia-400 flex items-center justify-between p-2 gap-2">
+    <div className="w-90 min-h-15 bg-fuchsia-400 flex items-center justify-between p-2 gap-2 rounded-xl">
       {edit ? (
         <input
           type="text"

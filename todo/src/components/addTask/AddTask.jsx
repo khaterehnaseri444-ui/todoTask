@@ -25,7 +25,7 @@ function AddTask({ currentCondition }) {
         />
         <button
           type="submit"
-          className="w-15 h-12 bg-fuchsia-400 rounded-l-none rounded-3xl cursor-pointer"
+          className="w-15 h-12 bg-fuchsia-400 rounded-l-none rounded-3xl cursor-pointer text-white font-extralight"
         >
           Add
         </button>
