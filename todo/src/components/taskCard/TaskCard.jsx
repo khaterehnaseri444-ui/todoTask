@@ -23,20 +23,36 @@ function TaskCard({ task }) {
     else if (task.condition === "inprogress") changeCondition(task.id, "done");
   };
   return (
-    <div className="w-80 h-10 bg-lime-200">
+    <div className="w-90 min-h-15 bg-fuchsia-400 flex items-center justify-between p-2 gap-2">
       {edit ? (
         <input
           type="text"
           value={newText}
           onChange={(e) => setNewText(e.target.value)}
+          className="w-70 h-10 bg-fuchsia-400 p-2"
         />
       ) : (
-        <p>{task.title}</p>
+        <p className="w-70 text-white text-[18px]">{task.title}</p>
       )}
-      <button onClick={editHandler}>{edit ? "save" : "✏️"}</button>
-      <button onClick={removeHandler}>🗑️</button>
+      <button
+        className="w-10 h-5 cursor-pointer flex items-center justify-center"
+        onClick={editHandler}
+      >
+        {edit ? "Save" : "Edit"}
+      </button>
+      <button
+        className="w-5 h-5 bg-red-600 text-white font-bold flex items-center justify-center cursor-pointer"
+        onClick={removeHandler}
+      >
+        X
+      </button>
       {task.condition !== "done" && (
-        <button onClick={changeConditionHandler}>n</button>
+        <button
+          className="w-6 h-5 bg-fuchsia-100 flex items-center justify-center cursor-pointer"
+          onClick={changeConditionHandler}
+        >
+          {"->"}
+        </button>
       )}
     </div>
   );
