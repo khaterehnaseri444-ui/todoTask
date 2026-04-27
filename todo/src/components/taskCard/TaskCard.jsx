@@ -48,7 +48,7 @@ function TaskCard({ task }) {
         {edit ? "Save" : "Edit"}
       </button>
       <button
-        className="w-5 h-5 bg-red-600 text-white font-bold flex items-center justify-center cursor-pointer"
+        className="w-5 h-5 rounded-md bg-red-600 text-white font-bold flex items-center justify-center cursor-pointer"
         onClick={removeHandler}
       >
         X
