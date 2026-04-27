@@ -12,11 +12,15 @@ function Todos() {
       <h1 className="text-[20px] font-extralight">Todos</h1>
       <AddTask currentCondition={"todo"} />
       </div>
-      {tasks.map((T) => (
-        <React.Fragment key={T.id}>
-          <TaskCard task={T} />
-        </React.Fragment>
-      ))}
+      {tasks.length === 0 ? (
+        <p>No Data</p>
+      ) : (
+        tasks.map((T) => (
+          <React.Fragment key={T.id}>
+            <TaskCard task={T} />
+          </React.Fragment>
+        ))
+      )}
     </div>
   );
 }

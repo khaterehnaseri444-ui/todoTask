@@ -12,11 +12,15 @@ function Done() {
         <h1 className="text-[20px] font-extralight">Done Tasks</h1>
         <AddTask currentCondition={"done"} />
       </div>
-      {tasks.map((T) => (
-        <React.Fragment key={T.id}>
-          <TaskCard task={T} />
-        </React.Fragment>
-      ))}
+      {tasks.length === 0 ? (
+        <p>No Data</p>
+      ) : (
+        tasks.map((T) => (
+          <React.Fragment key={T.id}>
+            <TaskCard task={T} />
+          </React.Fragment>
+        ))
+      )}
     </div>
   );
 }
