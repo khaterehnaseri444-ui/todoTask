@@ -13,7 +13,7 @@ function Inprogress() {
         <AddTask currentCondition={"inprogress"} />
       </div>
       {tasks.length === 0 ? (
-        <p>No Data</p>
+        <p className="text-[18px] font-extralight">No Data</p>
       ) : (
         tasks.map((T) => (
           <React.Fragment key={T.id}>
