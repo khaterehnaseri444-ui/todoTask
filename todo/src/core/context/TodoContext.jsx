@@ -9,11 +9,7 @@ import {
 
 const TodoContext = createContext();
 export const TodoProvider = ({ children }) => {
-  const todoTitle = "Todo";
-  const inprogressTitle = "In Progress";
-  const doneTitle = "Done";
   const [todoList, setTodoList] = useState([]);
-  const [valueInput, setValueInput] = useState("");
   useEffect(() => {
     const getTodos = localStorage.getItem("task");
     if (getTodos) {
@@ -72,12 +68,7 @@ export const TodoProvider = ({ children }) => {
         removeTask,
         editText,
         changeCondition,
-        valueInput,
-        setValueInput,
-        filterByCondition,
-        todoTitle,
-        inprogressTitle,
-        doneTitle
+        filterByCondition
       }}
     >
       {children}
