@@ -2,9 +2,11 @@ import Layout from "./layout/Layout";
 import Todos from "./components/todos/Todos";
 import Inprogress from "./components/inprogress/Inprogress";
 import Done from "./components/done/Done";
+import { TodoProvider } from "./core/context/TodoContext";
 
 function App() {
   return (
+    <TodoProvider>
       <Layout>
         <div className="w-full h-auto flex items-center justify-center">
           <div className="w-300 h-auto flex items-center justify-between">
@@ -14,6 +16,7 @@ function App() {
           </div>
         </div>
       </Layout>
+    </TodoProvider>
   );
 }
 export default App;

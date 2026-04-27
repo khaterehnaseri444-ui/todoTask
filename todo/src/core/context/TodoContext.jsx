@@ -1,11 +1,40 @@
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useReducer,
 } from "react";
+
+const TodoActions = {
+  AddTask: "AddTask",
+  RemoveTask: "RemoveTask",
+  EditText: "EditTExt",
+  ChangeCondition: "ChangeCondition",
+};
+
+const todoReducer = (state, action) => {
+  switch (action.type) {
+    case TodoActions.AddTask:
+      return [...state, action.payload];
+    case TodoActions.RemoveTask:
+      return state.filter((todo) => todo.id !== action.payload);
+    case TodoActions.EditText:
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, title: action.payload.newText }
+          : todo,
+      );
+    case TodoActions.ChangeCondition:
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, condition: action.payload.newCondition }
+          : todo,
+      );
+    default:
+      return state;
+  }
+};
 
 const TodoContext = createContext();
 const getTodoItems = () => {
@@ -21,38 +50,32 @@ const getTodoItems = () => {
   return [];
 };
 export const TodoProvider = ({ children }) => {
-  const [todoList, setTodoList] = useState(getTodoItems);
+  const [todoList, dispatch] = useReducer(todoReducer, [], getTodoItems);
   useEffect(() => {
     localStorage.setItem("task", JSON.stringify(todoList));
   }, [todoList]);
-  const addTask = useCallback((condition, title) => {
-    const newTask = {
-      id: Date.now(),
-      condition,
-      title,
-    };
-    setTodoList((prevTodo) => [...prevTodo, newTask]);
-  }, []);
 
-  const removeTask = useCallback((id) => {
-    setTodoList((prevTodo) => prevTodo.filter((todo) => todo.id !== id));
-  }, []);
+  const addTask = (condition, title) => {
+    dispatch({
+      type: TodoActions.AddTask,
+      payload: { id: Date.now(), condition, title },
+    });
+  };
 
-  const editText = useCallback((id, newText) => {
-    setTodoList((prevTodo) =>
-      prevTodo.map((todo) =>
-        todo.id === id ? { ...todo, title: newText } : todo,
-      ),
-    );
-  }, []);
+  const removeTask = (id) => {
+    dispatch({ type: TodoActions.RemoveTask, payload: id });
+  };
 
-  const changeCondition = useCallback((id, newCondition) => {
-    setTodoList((prevTodo) =>
-      prevTodo.map((todo) =>
-        todo.id === id ? { ...todo, condition: newCondition } : todo,
-      ),
-    );
-  }, []);
+  const editText = (id, newText) => {
+    dispatch({ type: TodoActions.EditText, payload: { id, newText } });
+  };
+
+  const changeCondition = (id, newCondition) => {
+    dispatch({
+      type: TodoActions.ChangeCondition,
+      payload: { id, newCondition },
+    });
+  };
 
   const filterByCondition = useMemo(() => {
     return {
