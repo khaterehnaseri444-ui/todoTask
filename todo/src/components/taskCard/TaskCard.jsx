@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTodo } from "../../core/context/TodoContext";
 
 function TaskCard({ task }) {
   const { removeTask, editText, changeCondition } = useTodo();
   const [edit, setEdit] = useState(false);
   const [newText, setNewText] = useState(task.title);
+  const focusRef = useRef(null);
+  useEffect(() => {
+    if (edit && focusRef.current) {
+      focusRef.current.focus();
+    }
+  }, [edit]);
   const editHandler = () => {
     if (!edit) {
       setEdit(true);
@@ -30,6 +36,7 @@ function TaskCard({ task }) {
           value={newText}
           onChange={(e) => setNewText(e.target.value)}
           className="w-70 h-10 bg-fuchsia-400 p-2"
+          ref={focusRef}
         />
       ) : (
         <p className="w-70 text-white text-[18px]">{task.title}</p>

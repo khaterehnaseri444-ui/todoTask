@@ -8,19 +8,20 @@ import {
 } from "react";
 
 const TodoContext = createContext();
-export const TodoProvider = ({ children }) => {
-  const [todoList, setTodoList] = useState([]);
-  useEffect(() => {
-    const getTodos = localStorage.getItem("task");
-    if (getTodos) {
-      try {
-        setTodoList(JSON.parse(getTodos));
-      } catch (error) {
-        console.error("Error in localstorage");
-      }
+const getTodoItems = () => {
+  const getTodos = localStorage.getItem("task");
+  if (getTodos) {
+    try {
+      return JSON.parse(getTodos);
+    } catch {
+      console.error("Localstorage Error");
+      return [];
     }
-  }, []);
-
+  }
+  return [];
+};
+export const TodoProvider = ({ children }) => {
+  const [todoList, setTodoList] = useState(getTodoItems);
   useEffect(() => {
     localStorage.setItem("task", JSON.stringify(todoList));
   }, [todoList]);
@@ -68,7 +69,7 @@ export const TodoProvider = ({ children }) => {
         removeTask,
         editText,
         changeCondition,
-        filterByCondition
+        filterByCondition,
       }}
     >
       {children}
