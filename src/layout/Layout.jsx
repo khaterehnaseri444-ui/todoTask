@@ -3,7 +3,7 @@ import Header from "../components/header/Header";
 
 function Layout({ children }) {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col lg:gap-10 md:gap-2">
       <header>
         <Header />
       </header>

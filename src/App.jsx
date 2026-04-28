@@ -7,7 +7,7 @@ function App() {
   return (
       <Layout>
         <div className="w-full h-auto flex items-center justify-center">
-          <div className="w-300 h-auto flex items-center justify-between">
+          <div className="lg:w-300 md:w-full h-auto flex items-center justify-between">
             <Todos />
             <Inprogress />
             <Done />
