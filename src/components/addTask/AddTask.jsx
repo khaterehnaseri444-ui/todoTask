@@ -21,11 +21,11 @@ function AddTask({ currentCondition }) {
           placeholder={`Write your ${currentCondition} task ...`}
           onChange={(e) => setValueInput(e.target.value)}
           value={valueInput}
-          className="lg:w-70 md:w-43 lg:h-12 md:h-8 rounded-3xl lg:p-5 md:p-2 border border-fuchsia-400 outline-none rounded-r-none md:text-[12px]"
+          className="lg:w-70 md:w-43 lg:h-12 md:h-8 rounded-3xl lg:p-5 md:p-2 border border-fuchsia-400 outline-none rounded-r-none md:text-[12px] lg:text-[15px]"
         />
         <button
           type="submit"
-          className="w-15 md:hidden h-12 bg-fuchsia-400 rounded-l-none rounded-3xl cursor-pointer"
+          className="w-15 md:hidden lg:flex items-center justify-center text-white h-12 bg-fuchsia-400 rounded-l-none rounded-3xl cursor-pointer"
         >
           Add
         </button>

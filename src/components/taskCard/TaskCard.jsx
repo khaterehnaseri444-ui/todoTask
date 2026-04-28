@@ -45,8 +45,8 @@ function TaskCard({ task }) {
         className="lg:w-10 lg:h-5 md:w-5 md:h-3 cursor-pointer flex items-center justify-center"
         onClick={editHandler}
       >
-        <p className="lg:hidden text-[13px]">{edit?'S':'E'}</p>
-        <p className="md:hidden"> {edit ? "Save" : "Edit"}</p>
+        <p className="lg:hidden md:flex text-[13px]">{edit?'S':'E'}</p>
+        <p className="md:hidden lg:flex"> {edit ? "Save" : "Edit"}</p>
       </button>
       <button
         className="lg:w-5 lg:h-5 md:text-[15px] lg:bg-red-600 lg:text-white md:text-red-600 font-bold flex items-center justify-center cursor-pointer"
