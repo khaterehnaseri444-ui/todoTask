@@ -59,7 +59,7 @@ function TaskCard({ task }) {
           className="lg:w-6 lg:h-5 md:w-4 md:h-4 bg-fuchsia-100 flex items-center justify-center cursor-pointer"
           onClick={changeConditionHandler}
         >
-          {">"}
+          {"M"}
         </button>
       )}
     </div>
