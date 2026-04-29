@@ -4,13 +4,15 @@ import Todos from "../../components/todos/Todos";
 
 function Home() {
   return (
-    <div className="w-full h-auto flex items-center justify-center">
-      <div className="lg:w-300 md:w-full h-auto flex items-center justify-between">
-        <Todos />
-        <Inprogress />
-        <Done />
+    <>
+      <div className="w-full h-auto flex items-center justify-center">
+        <div className="lg:w-300 md:w-full h-auto flex items-center justify-between">
+          <Todos />
+          <Inprogress />
+          <Done />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
