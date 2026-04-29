@@ -4,13 +4,15 @@ import { useLocation } from "react-router-dom";
 
 function TaskCard({ task }) {
   const location = useLocation();
-  const differenrCard =
-    location.pathname.includes("/done") ||
-    location.pathname.includes("/inprogress") ||
-    location.pathname.includes("todos") ||
-    location.pathname.includes("/doneM") ||
-    location.pathname.includes("/inprogressM") ||
-    location.pathname.includes("/todosM");
+  const paths = [
+    "/done",
+    "/inprogress",
+    "todos",
+    "/doneM",
+    "/inprogressM",
+    "/todosM",
+  ];
+  const differenrCard = paths.some((P) => location.pathname.includes(P));
   const { removeTask, editText, changeCondition } = useTodo();
   const [edit, setEdit] = useState(false);
   const [newText, setNewText] = useState(task.title);
@@ -62,7 +64,10 @@ function TaskCard({ task }) {
             onClick={editHandler}
           >
             <p className="lg:hidden md:flex text-[13px]">{edit ? "S" : "E"}</p>
-            <p className="md:hidden lg:flex hidden"> {edit ? "Save" : "Edit"}</p>
+            <p className="md:hidden lg:flex hidden">
+              {" "}
+              {edit ? "Save" : "Edit"}
+            </p>
           </button>
           <button
             className="lg:w-5 lg:h-5 md:text-[15px] lg:bg-red-600 lg:text-white md:text-red-600 font-bold flex items-center justify-center cursor-pointer"
