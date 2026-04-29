@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const navBar = [
   { id: 1, title: "All", path: "/" },
-  { id: 2, title: "Done", path: "/done" },
+  { id: 2, title: "Todos", path: "/todos" },
   { id: 3, title: "In progress", path: "/inprogress" },
-  { id: 4, title: "Todos", path: "/todos" },
+  { id: 4, title: "Done", path: "/done" },
 ];
 
 function Header() {
