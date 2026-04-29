@@ -6,11 +6,11 @@ function Todos() {
   const { filterByCondition } = useTodo();
   const tasks = filterByCondition.todos;
   return (
-    <div className="lg:w-full lg:h-auto flex flex-col items-center justify-center">
-      <p className="lg:text-[30px] text-fuchsia-700">Your Todos Tasks</p>
-      <div className="lg:w-300 lg:min-h-50 flex flex-col items-center justify-center lg:gap-5">
+    <div className="w-full h-auto flex flex-col items-center justify-center">
+      <p className="lg:text-[30px] md:text-[20px] text-fuchsia-700 md:mt-2">Your Todos Tasks</p>
+      <div className="lg:w-300 md:w-180 lg:min-h-50 md:min-h-30 flex flex-col items-center justify-center lg:gap-5">
         {tasks.length === 0 ? (
-          <p className="lg:h-100 lg:text-[20px] text-fuchsia-700 flex items-center justify-center">
+          <p className="lg:h-100 md:h-50 md:text-[16px] lg:text-[20px] text-fuchsia-700 flex items-center justify-center">
             Your List Is Empty
           </p>
         ) : (

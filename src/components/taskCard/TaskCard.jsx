@@ -40,17 +40,17 @@ function TaskCard({ task }) {
   return (
     <>
       {differenrCard ? (
-        <div className="lg:w-300 md:w-55 lg:min-h-15 md:h-8 bg-fuchsia-100 flex items-center justify-between p-2 gap-2">
+        <div className="lg:w-300 md:w-180 lg:min-h-15 md:h-8 bg-fuchsia-100 flex items-center justify-between p-2 gap-2">
           {edit ? (
             <input
               type="text"
               value={newText}
               onChange={(e) => setNewText(e.target.value)}
-              className="lg:w-250 md:w-38 md:h-6 lg:h-10 bg-fuchsia-400 p-2"
+              className="lg:w-250 md:w-160 md:h-6 lg:h-10 bg-fuchsia-400 p-2"
               ref={focusRef}
             />
           ) : (
-            <p className="lg:w-250 md:w-50 text-fuchsia-700 lg:text-[18px] md:text-[15px] overflow-hidden">
+            <p className="lg:w-250 md:w-160 text-fuchsia-700 lg:text-[18px] md:text-[15px] overflow-hidden">
               {task.title}
             </p>
           )}
