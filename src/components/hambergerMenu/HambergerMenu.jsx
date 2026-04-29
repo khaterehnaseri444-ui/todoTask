@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function HambergerMenu({ setOpenNav, navBar }) {
   return (
-    <div className="fixed inset-0 z-50 flex justify-start md:hidden">
+    <div className="md:hidden lg:hidden fixed inset-0 z-50 flex justify-start">
       <div
         className="absolute inset-0 bg-black/50"
         onClick={() => setOpenNav(false)}

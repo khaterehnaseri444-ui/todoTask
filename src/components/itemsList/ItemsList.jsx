@@ -7,8 +7,10 @@ const itemsList = [
 ];
 function ItemsList() {
   return (
-    <div className="w-full h-auto flex flex-col items-center justify-center gap-8 mt-3 p-3 mb-10">
-      <p>Add Your Tasks</p>
+    <div className="w-full h-150 flex flex-col items-center justify-center gap-8 mt-3 p-3 mb-10">
+      <p className="text-fuchsia-700 font-extralight text-[20px]">
+        Add Your Tasks +
+      </p>
       {itemsList.map((item) => (
         <React.Fragment key={item.id}>
           <Link to={item.path}>

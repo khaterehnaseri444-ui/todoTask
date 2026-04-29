@@ -6,13 +6,13 @@ function Done() {
   const { filterByCondition } = useTodo();
   const tasks = filterByCondition.done;
   return (
-    <div className="w-full h-auto flex flex-col items-center justify-center">
-      <p className="lg:text-[30px] md:text-[20px] text-fuchsia-700 md:mt-2">
+    <div className="w-full h-auto min-h-170 flex flex-col items-center justify-center">
+      <p className="lg:text-[30px] text-[20px] text-fuchsia-700 md:mt-2 mb-5 lg:mb-0 md:mb-0">
         Your Done Tasks
       </p>
       <div className="lg:w-300 md:w-180 lg:min-h-50 md:min-h-30 flex flex-col items-center justify-center lg:gap-5">
         {tasks.length === 0 ? (
-          <p className="lg:h-100 md:h-50 md:text-[16px] lg:text-[20px] text-fuchsia-700 flex items-center justify-center">
+          <p className="lg:h-100 md:h-50 md:text-[16px] text-[14px] lg:text-[20px] text-fuchsia-700 flex items-center justify-center">
             Your List Is Empty
           </p>
         ) : (

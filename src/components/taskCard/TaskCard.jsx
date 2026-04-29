@@ -7,7 +7,10 @@ function TaskCard({ task }) {
   const differenrCard =
     location.pathname.includes("/done") ||
     location.pathname.includes("/inprogress") ||
-    location.pathname.includes("todos");
+    location.pathname.includes("todos") ||
+    location.pathname.includes("/doneM") ||
+    location.pathname.includes("/inprogressM") ||
+    location.pathname.includes("/todosM");
   const { removeTask, editText, changeCondition } = useTodo();
   const [edit, setEdit] = useState(false);
   const [newText, setNewText] = useState(task.title);
@@ -40,17 +43,17 @@ function TaskCard({ task }) {
   return (
     <>
       {differenrCard ? (
-        <div className="lg:w-300 md:w-180 lg:min-h-15 md:h-8 bg-fuchsia-100 flex items-center justify-between p-2 gap-2">
+        <div className="lg:w-300 w-80 h-13 md:w-180 lg:min-h-15 md:h-8 bg-fuchsia-100 flex items-center justify-between p-2 gap-2">
           {edit ? (
             <input
               type="text"
               value={newText}
               onChange={(e) => setNewText(e.target.value)}
-              className="lg:w-250 md:w-160 md:h-6 lg:h-10 bg-fuchsia-400 p-2"
+              className="lg:w-250 w-70 md:w-160 md:h-6 lg:h-10 bg-fuchsia-400 p-2"
               ref={focusRef}
             />
           ) : (
-            <p className="lg:w-250 md:w-160 text-fuchsia-700 lg:text-[18px] md:text-[15px] overflow-hidden">
+            <p className="lg:w-250 w-70 md:w-160 text-fuchsia-700 lg:text-[18px] md:text-[15px] overflow-hidden">
               {task.title}
             </p>
           )}
@@ -59,7 +62,7 @@ function TaskCard({ task }) {
             onClick={editHandler}
           >
             <p className="lg:hidden md:flex text-[13px]">{edit ? "S" : "E"}</p>
-            <p className="md:hidden lg:flex"> {edit ? "Save" : "Edit"}</p>
+            <p className="md:hidden lg:flex hidden"> {edit ? "Save" : "Edit"}</p>
           </button>
           <button
             className="lg:w-5 lg:h-5 md:text-[15px] lg:bg-red-600 lg:text-white md:text-red-600 font-bold flex items-center justify-center cursor-pointer"
