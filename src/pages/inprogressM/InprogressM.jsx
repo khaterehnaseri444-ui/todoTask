@@ -5,12 +5,12 @@ import { useTodo } from "../../core/context/TodoContext";
 
 function InprogressM() {
   const { filterByCondition } = useTodo();
-  const tasks = filterByCondition.done;
+  const tasks = filterByCondition.inprogress;
   return (
     <div className="w-full h-auto min-h-170 p-3 flex flex-col items-center justify-center relative">
       <div className="w-full h-40 flex items-center justify-center flex-col absolute top-2.5">
         <h1 className="text-[20px] font-extralight">In Progress Tasks</h1>
-        <AddTask currentCondition={"done"} />
+        <AddTask currentCondition={"inprogress"} />
       </div>
       {tasks.length === 0 ? (
         <p>No Data</p>
